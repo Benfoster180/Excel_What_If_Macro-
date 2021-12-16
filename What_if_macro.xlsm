@@ -1,0 +1,42 @@
+Sub WhatIf_Macro()
+
+'Set this to Row your Data starts at For Example if the first Acount is on B4 set this to 4
+Dim Postion_Update As Integer
+Postion_Update = 4
+
+
+'Used to caulacate how many rows we have to work out the whatif for
+Range_of_Accounts = Application.WorksheetFunction.CountA(Range("C" & Int(Postion_Update) & ":" & "C" & "1048576"))
+
+'Calucates the excat range where all the accounts sit
+Acount_range = "C" & Int(Postion_Update) & ":" & "C" & Int(Range_of_Accounts + Postion_Update)
+
+Ammount_of_accounts = Postion_Update + Range_of_Accounts
+
+'Tells the code to loop through all the accounts in the range defined above and carry out the same task on all of them
+Dim x As Range
+For Each x In Range(Acount_range)
+
+'Defines the Target Vaule
+Target_location = Range("K" & Postion_Update).Select
+Target = ActiveCell.Value
+
+'Defines the Total Vaule
+Total_loc = "I" & Postion_Update
+Total_location = Range("I" & Postion_Update).Select
+Total = ActiveCell.Value
+
+'Defines the cell which we want to chnage
+Cell_to_change = Range("J" & Postion_Update)
+
+If Int(Target) <> 0 Then
+Range(("I" & Postion_Update)).GoalSeek Goal:=Int(Target), ChangingCell:=Range(("J" & Postion_Update))
+Postion_Update = Postion_Update + 1
+End If
+
+
+Next x
+
+MsgBox ("Process Completed")
+
+End Sub
