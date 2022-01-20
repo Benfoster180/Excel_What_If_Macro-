@@ -1,0 +1,29 @@
+Sub What_if_v2()
+
+
+'H1Table run through'
+
+
+H1_Start = 6
+
+Dim x As Range
+
+For Each x In Range("C6:C17")
+
+
+H1_H2_Target_loc = Range("Y" & H1_Start).Select
+H1_H2_Target = ActiveCell.Value
+
+H1_H2_Vaule_loc = Range("S" & H1_Start).Select
+H1_H2_Vaule = ActiveCell.Value
+
+Range(("S" & H1_Start)).GoalSeek Goal:=Int(H1_Start), ChangingCell:=Range(("W" & H1_Start))
+
+Range(("U" & H1_Start)).GoalSeek Goal:=Int(H1_Start), ChangingCell:=Range(("Y" & H1_Start))
+
+H1_Start = H1_Start + 1
+
+Next x
+
+End Sub
+
