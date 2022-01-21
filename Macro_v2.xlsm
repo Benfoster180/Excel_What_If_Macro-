@@ -4,26 +4,33 @@ Sub What_if_v2()
 'H1Table run through'
 
 
-H1_Start = 6
+H1_H2_Start = 6
+
 
 Dim x As Range
 
 For Each x In Range("C6:C17")
 
 
-H1_H2_Target_loc = Range("Y" & H1_Start).Select
-H1_H2_Target = ActiveCell.Value
+H1_Target_loc = Range("AA" & H1_H2_Start).Select
+H1_Target = ActiveCell.Value
 
-H1_H2_Vaule_loc = Range("S" & H1_Start).Select
-H1_H2_Vaule = ActiveCell.Value
+H1_Vaule_loc = Range("S" & H1_H2_Start).Select
+H1_Vaule = ActiveCell.Value
 
-Range(("S" & H1_Start)).GoalSeek Goal:=Int(H1_Start), ChangingCell:=Range(("W" & H1_Start))
+H2_Target_loc = Range("AC" & H1_H2_Start).Select
+H2_Target = ActiveCell.Value
 
-Range(("U" & H1_Start)).GoalSeek Goal:=Int(H1_Start), ChangingCell:=Range(("Y" & H1_Start))
+H2_Vaule_loc = Range("U" & H1_H2_Start).Select
+H2_Vaule = ActiveCell.Value
 
-H1_Start = H1_Start + 1
+
+Range(("S" & H1_H2_Start)).GoalSeek Goal:=H1_Target, ChangingCell:=Range(("W" & H1_H2_Start))
+
+Range(("U" & H1_H2_Start)).GoalSeek Goal:=H2_Target, ChangingCell:=Range(("Y" & H1_H2_Start))
+
+H1_H2_Start = H1_H2_Start + 1
 
 Next x
 
 End Sub
-
