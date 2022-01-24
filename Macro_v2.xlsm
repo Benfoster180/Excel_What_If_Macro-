@@ -1,3 +1,32 @@
+Sub vlookup()
+
+Account_place = 6
+
+Jun_account_place = 6
+
+Dim z As Range
+
+For Each z In Range("C6:C17")
+
+Jun_account_place_cell = "E" & Jun_account_place
+
+Account_name = "C" & Account_place
+
+Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
+
+Account_place = Account_place + 1
+
+Jun_account_place = Jun_account_place + 1
+
+Next z
+
+End Sub
+
+
+
+
+
+
 Sub What_if_v2()
 
 
