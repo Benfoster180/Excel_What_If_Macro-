@@ -1,5 +1,10 @@
 Sub vlookup()
 
+
+
+'H1 and H2 June Vlookup
+
+
 Account_place = 6
 
 Jun_account_place = 6
@@ -10,15 +15,59 @@ For Each z In Range("C6:C17")
 
 Jun_account_place_cell = "E" & Jun_account_place
 
-Account_name = "C" & Account_place
+Account_Name = "C" & Account_place
 
-Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
+Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
 
 Account_place = Account_place + 1
 
 Jun_account_place = Jun_account_place + 1
 
 Next z
+
+'FY June Vlook up
+
+
+Account_place = 25
+
+Jun_account_place = 25
+
+Dim T As Range
+
+For Each T In Range("C25:C36")
+
+Jun_account_place_cell = "E" & Jun_account_place
+
+Account_Name = "C" & Account_place
+
+Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
+
+Account_place = Account_place + 1
+
+Jun_account_place = Jun_account_place + 1
+
+Next T
+
+Account_place = 6
+
+Target_place = 6
+
+Dim B As Range
+
+
+For Each B In Range("AC6:AC17")
+
+Account_Name = "C" & Account_place
+
+Target_cell = "AC" & Target_place
+
+
+Range(Target_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AH21,32,FALSE)"
+
+Account_place = Account_place + 1
+Target_place = Target_place + 1
+Next B
+
 
 End Sub
 
