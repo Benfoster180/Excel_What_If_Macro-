@@ -1,73 +1,101 @@
 Sub vlookup()
 
-
-
-
-'H1 and H2 June Vlookup
-
-
+'Tells the code where to start
 Account_place = 6
+Target_cell = 6
 
-Jun_account_place = 6
 
-Dim z As Range
+' This is used for getting the Jun numbers for H1 & H2
+'-------------------------------------
 
-For Each z In Range("C6:C17")
 
-Jun_account_place_cell = "E" & Jun_account_place
+Dim H1_H2_Jun_Numbers As Range
 
-Account_Name = "C" & Account_place
+For Each H1_H2_Jun_Numbers In Range("C6:C17")
 
-Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
+Target_place = "E" & Target_cell 'The Cell that will display the Vlookup result
 
+Account_Name = "C" & Account_place 'This is the account we will look up
+
+Range(Target_place).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)" 'This will run the Vlookup
+
+
+'Used to move to code on to the next account
 Account_place = Account_place + 1
+Target_cell = Target_cell + 1
 
-Jun_account_place = Jun_account_place + 1
+Next H1_H2_Jun_Numbers
 
-Next z
-
-'FY June Vlook up
+'--------------------------------------------
 
 
+
+' FY Jun numbers table
+'---------------------------------------------
+
+'Moves the code so it will work on the FY Table
 Account_place = 25
+Target_cell = 25
 
-Jun_account_place = 25
+Dim FY_Jun_Numbers As Range
 
-Dim T As Range
+For Each FY_Jun_Numbers In Range("C25:C36")
 
-For Each T In Range("C25:C36")
+Target_place = "E" & Target_cell 'Tells the code where to preform the Vlookup
+Account_Name = "C" & Account_place ' Tells the code what account to look up
 
-Jun_account_place_cell = "E" & Jun_account_place
+Range(Target_place).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)" 'This will run the Vlookup
 
-Account_Name = "C" & Account_place
-
-Range(Jun_account_place_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AG21,7,FALSE)"
-
+'Used to move to code on to the next account
 Account_place = Account_place + 1
+Target_cell = Target_cell + 1
 
-Jun_account_place = Jun_account_place + 1
+Next FY_Jun_Numbers
 
-Next T
+'------------------------------------
 
+' H1 Taregt Update
+'---------------------------
+
+Dim H1_Target As Range
+
+For Each H1_Target In Range("AA6:AA17")
+
+
+Next H1_Target
+
+
+'--------------------------------------
+
+'H2 Target update
+'------------------------------------
+
+'Makes sure the macro runs in the right place
 Account_place = 6
+Target_cell = 6
 
-Target_place = 6
+Dim H2_Target As Range
 
-Dim B As Range
+For Each H2_Target In Range("AC6:AC17")
 
-
-For Each B In Range("AC6:AC17")
-
-Account_Name = "C" & Account_place
-
-Target_cell = "AC" & Target_place
+Account_Name = "C" & Account_place 'This tells the code what account to lookup
+Target_place = "AC" & Target_cell 'Tells the code where to put the result of teh vlookup
 
 
-Range(Target_cell).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AH21,32,FALSE)"
+Range(Target_place).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AH21,32,FALSE)" 'The Vlookup it's self
 
+
+'Updates the code to run the next account
 Account_place = Account_place + 1
-Target_place = Target_place + 1
-Next B
+Target_cell = Target_cell + 1
+
+Next H2_Target
+
+
+
+
+
+
 
 
 End Sub
