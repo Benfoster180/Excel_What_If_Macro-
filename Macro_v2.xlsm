@@ -57,9 +57,21 @@ Next FY_Jun_Numbers
 ' H1 Taregt Update
 '---------------------------
 
+Account_place = 6
+Target_cell = 6
+
+
 Dim H1_Target As Range
 
 For Each H1_Target In Range("AA6:AA17")
+
+Account_Name = "C" & Account_place 'This tells the code what account to lookup
+Target_place = "AA" & Target_cell 'Tells the code where to put the result of the vlookup
+
+Range(Target_place).Value = "=VLOOKUP(" & Account_Name & ",'Strategic Accounts'!C10:AW21,47,FALSE)"
+
+Account_place = Account_place + 1
+Target_cell = Target_cell + 1
 
 
 Next H1_Target
