@@ -1,4 +1,4 @@
-Sub vlookup()
+Sub Vlookup_Vaules()
 
 'Tells the code where to start
 Account_place = 6
@@ -104,80 +104,68 @@ Target_cell = Target_cell + 1
 Next H2_Target
 
 
-
-
-
-
-
-
 End Sub
 
 
 
+Sub H1_Mom_sub()
+H1_Start = 6 'This is where the Code Will start so if it's 6 it starts on the 6th cell
+Dim H1_Mom As Range
 
-
-
-Sub What_if_v2()
-
-
-'H1Table run through'
-
-
-H1_H2_Start = 6
-
-
-Dim x As Range
-
-For Each x In Range("C6:C17")
+For Each H1_Mom In Range("C6:C17")
 
 'Collects the target for H1'
-H1_Target_loc = Range("AA" & H1_H2_Start).Select
+H1_Target_loc = Range("AA" & H1_Start).Select
 H1_Target = ActiveCell.Value
 
 'Collects the H1 Vaule
-H1_Vaule_loc = Range("S" & H1_H2_Start).Select
+H1_Vaule_loc = Range("S" & H1_Start).Select
 H1_Vaule = ActiveCell.Value
 
 
 
 'H1 Go seek
-Range(("S" & H1_H2_Start)).GoalSeek Goal:=H1_Target, ChangingCell:=Range(("W" & H1_H2_Start))
+
+'      Vaule we want to change       Target        What we change to achive it
+Range(("S" & H1_Start)).GoalSeek Goal:=H1_Target, ChangingCell:=Range(("W" & H1_Start))
 
 
 
 'Updateds the macro range so it will focues on the next row
-H1_H2_Start = H1_H2_Start + 1
+H1_Start = H1_Start + 1
 
 'Tells the macro to to repeat thw whole process on the next cell
-Next x
+Next H1_Mom
 
 End Sub
 
 
-Sub What_if_v3()
+Sub H2_Mom_sub()
 
 
-H1_H2_Start = 6
+H2_Start = 6
 
-Dim x As Range
+Dim H2_Mom As Range
 
-For Each x In Range("C6:C17")
+For Each H2_Mom In Range("C6:C17")
 
 'Collects the H2 Target
-H2_Target_loc = Range("AC" & H1_H2_Start).Select
+H2_Target_loc = Range("AC" & H2_Start).Select
 H2_Target = ActiveCell.Value
 
 'Collects the H2 Vaule
-H2_Vaule_loc = Range("U" & H1_H2_Start).Select
+H2_Vaule_loc = Range("U" & H2_Start).Select
 H2_Vaule = ActiveCell.Value
 
 'H2 Go seek
-Range(("U" & H1_H2_Start)).GoalSeek Goal:=H2_Target, ChangingCell:=Range(("Y" & H1_H2_Start))
+
+'      Vaule we want to change       Target        What we change to achive it
+Range(("U" & H2_Start)).GoalSeek Goal:=H2_Target, ChangingCell:=Range(("Y" & H2_Start))
 
 'Updateds the macro range so it will focues on the next row
-H1_H2_Start = H1_H2_Start + 1
+H2_Start = H2_Start + 1
 
-Next x
+Next H2_Mom
 
 End Sub
 
