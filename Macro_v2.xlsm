@@ -169,3 +169,30 @@ Next H2_Mom
 
 End Sub
 
+Sub FY_Table()
+
+FY_Start = 25
+
+Dim FY_Daily As Range
+
+For Each FY_Daily In Range("C25:C36")
+
+'Collects the H2 Target
+FY_Target_loc = Range("Y" & FY_Start).Select
+FY_Target = ActiveCell.Value
+
+
+'FY Go seek
+
+'      Vaule we want to change       Target        What we change to achive it
+Range(("S" & FY_Start)).GoalSeek Goal:=FY_Target, ChangingCell:=Range(("W" & FY_Start))
+
+'Updateds the macro range so it will focues on the next row
+FY_Start = FY_Start + 1
+
+Next FY_Daily
+
+
+
+End Sub
+
