@@ -103,8 +103,11 @@ Target_cell = Target_cell + 1
 
 Next H2_Target
 
+Call H1_Mom_sub
 
 End Sub
+
+
 
 
 
@@ -137,6 +140,8 @@ H1_Start = H1_Start + 1
 'Tells the macro to to repeat thw whole process on the next cell
 Next H1_Mom
 
+Call H2_Mom_sub
+
 End Sub
 
 
@@ -166,6 +171,8 @@ Range(("U" & H2_Start)).GoalSeek Goal:=H2_Target, ChangingCell:=Range(("Y" & H2_
 H2_Start = H2_Start + 1
 
 Next H2_Mom
+
+Call FY_Table
 
 End Sub
 
