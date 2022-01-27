@@ -1,5 +1,7 @@
 Sub Vlookup_Vaules()
 
+Worksheets("SA Test").Activate 'This line is needed until I can find away to run the macro in the background
+
 'Tells the code where to start
 Account_place = 6
 Target_cell = 6
@@ -199,7 +201,7 @@ FY_Start = FY_Start + 1
 
 Next FY_Daily
 
-
+Worksheets("Strategic Accounts").Activate
 
 End Sub
 
