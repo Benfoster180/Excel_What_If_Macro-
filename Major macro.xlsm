@@ -20,6 +20,10 @@ Next MJ_Vlookup
 
 End Sub
 
+Sub H1_Target_Vlookup()
+
+End Sub
+
 Sub Goal_Seek_H1()
 
 Account_place = 4
@@ -40,5 +44,30 @@ Range((H1_Exit)).GoalSeek Goal:=Target, ChangingCell:=Range(("W" & Account_place
 Account_place = Account_place + 1
 
 Next Goalseek_MJ
+
+End Sub
+
+Sub H2_Goalseek()
+
+Account_place = 4
+
+Dim Goalseek_H2 As Range
+
+For Each Goalseek_H2 In Range("B4:B360")
+
+
+H2_Exit = "AC" & Account_place
+
+
+Target_loc = Range("U" & Account_place).Select
+Targett = ActiveCell.Value
+
+Range((H2_Exit)).GoalSeek Goal:=Targett, ChangingCell:=Range(("Y" & Account_place))
+
+Account_place = Account_place + 1
+
+Next Goalseek_H2
+
+
 
 End Sub
