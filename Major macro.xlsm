@@ -22,6 +22,42 @@ End Sub
 
 Sub H1_Target_Vlookup()
 
+Account_place = 4
+
+Dim H1_Vlook As Range
+
+For Each H1_Vlook In Range("B4:B360")
+
+Vlookup_cell = "S" & Account_place
+
+Tipid_location = "B" & Account_place
+
+Range(Vlookup_cell).Value = "=VLOOKUP(" & Tipid_location & ",'Major Accounts All up'!B4:AF360,29,TRUE)"
+
+Account_place = Account_place + 1
+
+Next H1_Vlook
+
+End Sub
+
+Sub H2_Target_Vlookup()
+
+Account_place = 4
+
+Dim H2_Vlook As Range
+
+For Each H2_Vlook In Range("B4:B360")
+
+Vlookup_cell = "U" & Account_place
+
+Tipid_location = "B" & Account_place
+
+Range(Vlookup_cell).Value = "=VLOOKUP(" & Tipid_location & ",MAJORS[[#Headers],[#Data],[TPID]:[Jun Baseline]],19,TRUE)"
+
+Account_place = Account_place + 1
+
+Next H2_Vlook
+
 End Sub
 
 Sub Goal_Seek_H1()
@@ -46,6 +82,7 @@ Account_place = Account_place + 1
 Next Goalseek_MJ
 
 End Sub
+
 
 Sub H2_Goalseek()
 
