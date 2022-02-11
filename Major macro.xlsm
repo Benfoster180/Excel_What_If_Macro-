@@ -1,0 +1,21 @@
+Sub Major_all_macro()
+
+Worksheets("MJ ALL UP TEST").Activate
+
+Account_place = 4
+
+Dim MJ_Vlookup As Range
+
+For Each MJ_Vlookup In Range("B4:B360")
+
+Vlookup_cell = "E" & Account_place
+
+Tipid_location = "B" & Account_place
+
+Range(Vlookup_cell).Value = "=VLOOKUP(" & Tipid_location & ",MAJORS[[#Headers],[#Data],[TPID]:[Jun Baseline]],19,TRUE)"
+
+Account_place = Account_place + 1
+
+Next MJ_Vlookup
+
+End Sub
